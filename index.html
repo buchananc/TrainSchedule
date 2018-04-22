@@ -64,13 +64,13 @@
                         <label for="destination">Destination</label>
                         <input class="form-control" id="train-destination" type="text">
                     </div>
-                    <div id="Next Arrival">
-                        <label for="arrival">Arrival Time (HH:mm - military time)</label>
-                        <input class="form-control" id="train-arrival" type="time">
-                    </div>
                     <div id="Frequency">
                         <label for="frequency">Frequency (min)</label>
-                        <input class="form-control" id="train-frequency" type="time">
+                        <input class="form-control" id="train-frequency" type="number" min="0" max="60">
+                    </div>
+                    <div id="Next Arrival">
+                        <label for="arrival">Arrival Time</label>
+                        <input class="form-control" id="train-arrival" type="time">
                     </div>
                     <button class="btn btn-primary" id="submit" type="submit">Submit</button>
                 </div>

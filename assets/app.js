@@ -1,4 +1,5 @@
 $(document).ready(function () {   
+    
    /////////////// Initialize Firebase ////////////////////
     var config = {
         apiKey: "AIzaSyAtotlA8Gb_AWUgw-ThzNwbHX4pDz6ji-I",
@@ -11,12 +12,6 @@ $(document).ready(function () {
     firebase.initializeApp(config);
 
     var database = firebase.database();
-
-    // var trainRef = database.ref("/TrainData");
-    // var trainName = database.ref(".name/train");
-    // var trainDestination = database.ref(".destination/train");
-    // var trainFrequency = database.ref(".frequency/train");
-    // var trainArrival = database.ref(".arrival/train");
 
     /////////////// Button to add Train (Timesheet)////////////////////
     $("#submit").on("click", function (event) {
@@ -40,10 +35,10 @@ $(document).ready(function () {
         database.ref().push(newTrain);
 
         //Logs everything to console
-        console.log(newTrain.name);
-        console.log(newTrain.destination);
-        console.log(newTrain.frequency);
-        console.log(newTrain.arrival);
+        // console.log(newTrain.name);
+        // console.log(newTrain.destination);
+        // console.log(newTrain.frequency);
+        // console.log(newTrain.arrival);
 
         //Clears all text-boxes
         $("#train-name").val("");
@@ -62,7 +57,8 @@ $(document).ready(function () {
         var tName = childSnapshot.val().name;
         var tDestination = childSnapshot.val().destination;
         var tFrequency = childSnapshot.val().frequency;
-        var tArrival = childSnapshot.val().arrival;
+        var tArrival = childSnapshot.val().arrival; 
+        var startTime = moment().fromNow();
 
         //train info
         console.log(tName);
@@ -70,13 +66,23 @@ $(document).ready(function () {
         console.log(tFrequency);
         console.log(tArrival);
 
-        //Prettify the train start
-        var trainArrives = moment.unix(tArrival).format("MM/DD/YY");
+        //Prettify the train arrival time
+        var trainArrives = moment.unix(tArrival).format("hh:mm");
 
-        // Calculate the arrival time using hardcore math
-        // To calculate the arrival time
-        var arrivalTime = moment().diff(moment(empStart, "X"), "months"); //might need to change var name to minutesAway
-        console.log(arrivalTime);
+        var diff = moment.duration(moment(then).diff(moment(now)));
+
+        //calculate minutes away 
+        function minutesAway(startTime, trainArrives) {
+            var start = moment(startTime, "hh:mm");
+            var end = moment(trainArrives, "hh:mm");
+            var minutes = end.diff(start, 'minutes');
+            var interval = moment().hour(0).minute(minutes);
+            // interval.subtract(lunchTime, 'minutes');
+            return interval.format("hh:mm");
+        }
+        console.log("minutes away " + minutesAway());
+        console.log("start time " + startTime);
+
 
         // Calculate the total billed rate
         // var empBilled = empMonths * empRate;
