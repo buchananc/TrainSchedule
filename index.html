@@ -57,20 +57,20 @@
             <div class="panel-body">
                 <div class="form-group row">
                     <div id="Name">
-                        <label for="Train name">Train Name</label>
+                        <label for="train name">Train Name</label>
                         <input class="form-control" id="train-name" type="text">
                     </div>
                     <div id="Destination">
                         <label for="destination">Destination</label>
                         <input class="form-control" id="train-destination" type="text">
                     </div>
-                    <div id="Frequency">
-                        <label for="frequency">Arrival Time (HH:mm - military time)</label>
-                        <input class="form-control" id="train-arrival" type="number">
-                    </div>
                     <div id="Next Arrival">
-                        <label for="arrival">Frequency (min)</label>
-                        <input class="form-control" id="train-frequency" type="number">
+                        <label for="arrival">Arrival Time (HH:mm - military time)</label>
+                        <input class="form-control" id="train-arrival" type="time">
+                    </div>
+                    <div id="Frequency">
+                        <label for="frequency">Frequency (min)</label>
+                        <input class="form-control" id="train-frequency" type="time">
                     </div>
                     <button class="btn btn-primary" id="submit" type="submit">Submit</button>
                 </div>

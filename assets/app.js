@@ -12,11 +12,11 @@ $(document).ready(function () {
 
     var database = firebase.database();
 
-    var trainRef = database.ref("/TrainData");
-    var trainName = database.ref(".name/train");
-    var trainDestination = database.ref(".destination/train");
-    var trainFrequency = database.ref(".frequency/train");
-    var trainArrival = database.ref(".arrival/train");
+    // var trainRef = database.ref("/TrainData");
+    // var trainName = database.ref(".name/train");
+    // var trainDestination = database.ref(".destination/train");
+    // var trainFrequency = database.ref(".frequency/train");
+    // var trainArrival = database.ref(".arrival/train");
 
     /////////////// Button to add Train (Timesheet)////////////////////
     $("#submit").on("click", function (event) {
