@@ -58,7 +58,7 @@ $(document).ready(function () {
         var tDestination = childSnapshot.val().destination;
         var tFrequency = childSnapshot.val().frequency;
         var tArrival = childSnapshot.val().arrival; 
-        var startTime = moment().fromNow();
+        //var startTime = moment().fromNow();
 
         //train info
         console.log(tName);
@@ -69,27 +69,32 @@ $(document).ready(function () {
         //Prettify the train arrival time
         var trainArrives = moment.unix(tArrival).format("hh:mm");
 
-        var diff = moment.duration(moment(then).diff(moment(now)));
-
+        // var diff = moment.duration(moment(then).diff(moment(now)));
         //calculate minutes away 
-        function minutesAway(startTime, trainArrives) {
-            var start = moment(startTime, "hh:mm");
-            var end = moment(trainArrives, "hh:mm");
-            var minutes = end.diff(start, 'minutes');
-            var interval = moment().hour(0).minute(minutes);
-            // interval.subtract(lunchTime, 'minutes');
-            return interval.format("hh:mm");
-        }
-        console.log("minutes away " + minutesAway());
-        console.log("start time " + startTime);
+        var timeDiff = moment().diff(moment(tArrival, "hh:mm A"), 'm');
+        var minutesAway = timeDiff % tFrequency;
+        var timeLeft = tFrequency - minutesAway;
 
+        console.log ("Time Difference " + timeDiff); //works
+        console.log ("Minutes away " + minutesAway); //works
+        console.log ("Time left " + timeLeft); //works
 
-        // Calculate the total billed rate
-        // var empBilled = empMonths * empRate;
-        // console.log(empBilled);
+        //calculate next arrival
+        var nextTime = moment().add(timeLeft, 'm');
+
+        //set variables
+        var newTrain = moment(nextTime).format("hh:mm A");
+        console.log(newTrain);
+        var timeAway = timeLeft;
+        console.log("Minutes away: " + timeAway);
 
         // Add each train's data into the table
-        $("#train-table > tbody").append("<tr><td>" + tName + "</td><td>" + tDestination + "</td><td>" +
-            tFrequency + "</td><td>" + tArrival + "</td><td>" + minutesAway + "</td></tr>");
+        $("#train-table").append(
+            "<tr><td>" + tName + 
+            "</td><td>" + tDestination + 
+            "</td><td>" + tFrequency + 
+            "</td><td>" + tArrival + 
+            "</td><td>" + timeLeft + 
+            "</td></tr>");
     });
 });
