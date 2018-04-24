@@ -3,7 +3,8 @@ font-family: 'Fredoka One', cursive;
 font-family: 'Archivo Narrow', sans-serif; */
 
 body {
-    font-family: Lato
+    font-family: Lato;
+    background-color: #959EA8;
 }
 
 h1,
@@ -53,6 +54,7 @@ h6 {
 
 .panel.panel-primary {
     border-color: #2c3e50;
+    margin-top: 25px;
 }
 
 
@@ -62,6 +64,12 @@ label {
 
 th, tr {
     text-align: center;
+    font-family: 'Archivo Narrow',
+    sans-serif;
+}
+.panel-body {
+    font-family: 'Archivo Narrow',
+    sans-serif;
 }
     
 
@@ -77,13 +85,32 @@ th, tr {
     text-align: center !important;
 }
 
+.socialIcon {
+    font-size: 1.67em;
+}
+
+.socialIcon:hover {
+    color: #37DB67;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+}
+
+.btn-outline-light {
+    color: #f8f9fa;
+    background-color: transparent;
+    background-image: none;
+    border-color: #f8f9fa;
+}
+
 .copyright {
     background-color: #1a252f;
     color: white;
 }
 
 a {
-    color: #18bc9c
+    color: #37DB67
 }
 
 a:active,
@@ -122,8 +149,8 @@ a:hover {
 
 .btn-primary {
     color: #fff;
-    background-color: #18bc9c;
-    border-color: #18bc9c;
+    background-color: #37DB67;
+    border-color: #37DB67;
 }
 
 .btn-primary:hover,
@@ -132,8 +159,8 @@ a:hover {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
     color: #fff;
-    background-color: #18bc9c;
-    border-color: #18bc9c;
+    background-color: #37DB67;
+    border-color: #37DB67;
 }
 
 /***********************
@@ -141,12 +168,12 @@ a:hover {
 ************************/
 
 .btn-primary.raised {
-    box-shadow: 0 3px 0 0 #007299;
+    box-shadow: 0 3px 0 0 #54958A;
 }
 
 .btn-primary.raised:active,
 .btn-primary.raised.active {
-    background: #33a6cc;
+    background: #37DB67;
     box-shadow: none;
     margin-bottom: -3px;
     margin-top: 3px;
@@ -167,13 +194,13 @@ a:hover {
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus {
-    outline: 0 #03445a;
+    outline: 0 #54958A;
     ;
 }
 
 .btn-primary {
-    background-color: #18bc9c;
-    border-color: #18bc9c;
+    background-color: #37DB67;
+    border-color: #37DB67;
     color: #ffffff;
 }
 
@@ -189,7 +216,7 @@ a:hover {
 
 .btn-primary:active,
 .btn-primary.active {
-    background: #007299;
+    background: #37DB67;
     box-shadow: none;
 }
 
