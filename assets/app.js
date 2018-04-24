@@ -49,6 +49,11 @@ $(document).ready(function () {
 
     ///////////////// Firebase Event to Add Train Info (Timesheet) /////////////////////
 
+    //input first arrival and freq
+    //current time
+    //while current time > last arrival then add freq
+    //subtract minutes current time from arrival time
+
     //Create Firebase event for adding train to the database and a row in the html when a user adds an entry
     database.ref().on("child_added", function(childSnapshot, prevChildKey){
         console.log(childSnapshot.val());
