@@ -22,6 +22,9 @@ $(document).ready(function () {
         var tDestination = $("#train-destination").val().trim();
         var tFrequency = $("#train-frequency").val().trim();
         var tArrival = $("#train-arrival").val().trim();
+        if(tName == "" || tDestination == "" || tFrequency == "" || tArrival == "") {
+            alert("All forms must have inputs");
+        }
 
         //Creates local "temporary" object for holding train data
         var newTrain = {
@@ -70,13 +73,14 @@ $(document).ready(function () {
         console.log(tDestination);
         console.log(tFrequency);
         console.log(tArrival);
-
+        var now = moment().format("HH:mm");
         //Prettify the train arrival time
         var trainArrives = moment.unix(tArrival).format("hh:mm");
 
         // var diff = moment.duration(moment(then).diff(moment(now)));
         //calculate minutes away 
         var timeDiff = moment().diff(moment(tArrival, "hh:mm A"), 'm');
+
         var minutesAway = timeDiff % tFrequency;
         var timeLeft = tFrequency - minutesAway;
 
@@ -98,7 +102,7 @@ $(document).ready(function () {
             "<tr><td>" + tName + 
             "</td><td>" + tDestination + 
             "</td><td>" + tFrequency + 
-            "</td><td>" + tArrival + 
+            "</td><td>" + newTrain + 
             "</td><td>" + timeLeft + 
             "</td></tr>");
     });
